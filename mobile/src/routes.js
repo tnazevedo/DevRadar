@@ -3,7 +3,8 @@ import { createStackNavigator} from 'react-navigation-stack'
 
 
 import Main from './pages/Main';
-import Profile from './pagee/Profile';
+import Profile from './pages/Profile';
+import api from  './services/api';
 const Routes = createAppContainer(
   createStackNavigator({
     Main:{
@@ -20,6 +21,7 @@ const Routes = createAppContainer(
     },
       defaultNavigationOptions:{
         headerTintColor:'#fff',
+        headerBackTitleVisible:false,
         headerStyle:{
           backgroundColor:'#7d40e7',
         },
