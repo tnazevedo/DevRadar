@@ -6,6 +6,11 @@ const socket = socketio('http:// endereço  do  axios ',{
 });
 
 
+function subscribetoNewDevs(subscribeFunction){
+  socket.on('new-dev', subscribeFunction)
+
+}
+
 function connect(latitude, longitude,techs){
   socket.io.opts.query = {
     latitude,
@@ -13,6 +18,9 @@ function connect(latitude, longitude,techs){
     techs,
   }
   socket.connect();
+  socket.on('message', text => {
+    console.log(text);
+  })
 
 }
 
@@ -27,6 +35,7 @@ function disconnect(){
 export {
   connect,
   disconnect,
+  subscribetoNewDevs,
 };
 
 
